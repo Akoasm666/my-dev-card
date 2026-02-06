@@ -1,11 +1,10 @@
+import json
+
+
 def main():
-    # 个人信息配置
+    # 个人信息配置（三语）
     personal_info = {
-        "name": "陈鹏舟(Pengzhou Chen)",
-        "title": "Software Engineer @ AMMO AI | B.S. in CS, University of Michigan",
-        "description": "Full-stack Software Engineer with experience in AI-powered applications, "
-                       "Django REST Framework, multi-agent systems, and vector database search. "
-                       "Passionate about building scalable backend systems, MLOps, and CI/CD automation.",
+        "name": "Pengzhou (Baron) Chen",
         "skills": [
             "Python", "Java", "C++", "JavaScript", "TypeScript",
             "Django", "Flask", "FastAPI", "React",
@@ -14,128 +13,448 @@ def main():
             "AWS", "GCP", "Microsoft Azure",
             "REST Framework", "WebSocket", "Pytorch"
         ],
-        "projects": [
-            {
-                "name": "AMMO AI - Multi-Agent AI Application",
-                "description": "Built a Django REST backend with multi-agent architecture, "
-                               "pgvector semantic search, and WebSocket real-time communication. "
-                               "Deployed via Docker on Google Cloud Run, reaching 70k users in 2 weeks."
-            },
-            {
-                "name": "Vision-Based Cancer Detection Using Deep Learning",
-                "description": "Designed a multi-layer CNN model on 100,000+ cancer images achieving 80% accuracy. "
-                               "Created a chatbot for cancer prediction and care advice. Published at SPIE."
-            },
-            {
-                "name": "HireBeat - GitHub Profile Chrome Extension",
-                "description": "Developed a Chrome Extension to scrape GitHub profiles for 50+ employers. "
-                               "Full-stack system with React/JQuery frontend and Python Flask + PostgreSQL backend."
-            },
-            {
-                "name": "Database Migration for Social Media Platform",
-                "description": "Redesigned database schemas for an Instagram-like platform. "
-                               "Migrated data from Oracle DB to MySQL and MongoDB using SQL and NoSQL queries."
-            }
-        ],
         "contact": {
             "github": "https://github.com/Akoasm666",
             "linkedin": "https://www.linkedin.com/in/pengzhou-chen-a52b60195/"
         }
     }
 
+    # 三语翻译内容
+    translations = {
+        "en": {
+            "name": "Pengzhou (Baron) Chen",
+            "title": "Software Engineer @ AMMO AI | B.S. in CS, University of Michigan",
+            "description": (
+                "Full-stack Software Engineer with experience in AI-powered applications, "
+                "Django REST Framework, multi-agent systems, and vector database search. "
+                "Passionate about building scalable backend systems, MLOps, and CI/CD automation."
+            ),
+            "section_skills": "Skills",
+            "section_projects": "Projects",
+            "section_contact": "Contact",
+            "projects": [
+                {
+                    "name": "AMMO AI - Multi-Agent AI Application",
+                    "description": "Built a Django REST backend with multi-agent architecture, "
+                                   "pgvector semantic search, and WebSocket real-time communication. "
+                                   "Deployed via Docker on Google Cloud Run, reaching 70k users in 2 weeks."
+                },
+                {
+                    "name": "Vision-Based Cancer Detection Using Deep Learning",
+                    "description": "Designed a multi-layer CNN model on 100,000+ cancer images achieving 80% accuracy. "
+                                   "Created a chatbot for cancer prediction and care advice. Published at SPIE.",
+                    "url": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12079/1207926/A-new-application-in-cancer-diagnosis-based-on-convolutional-neural/10.1117/12.2623108.short"
+                },
+                {
+                    "name": "HireBeat - GitHub Profile Chrome Extension",
+                    "description": "Developed a Chrome Extension to scrape GitHub profiles for 50+ employers. "
+                                   "Full-stack system with React/JQuery frontend and Python Flask + PostgreSQL backend."
+                },
+                {
+                    "name": "Database Migration for Social Media Platform",
+                    "description": "Redesigned database schemas for an Instagram-like platform. "
+                                   "Migrated data from Oracle DB to MySQL and MongoDB using SQL and NoSQL queries."
+                }
+            ]
+        },
+        "zh": {
+            "name": "陈鹏舟",
+            "title": "软件工程师 @ AMMO AI | 密歇根大学计算机科学学士",
+            "description": (
+                "全栈软件工程师，在 AI 驱动的应用开发、Django REST Framework、"
+                "多智能体系统和向量数据库搜索方面拥有丰富经验。"
+                "热衷于构建可扩展的后端系统、MLOps 和 CI/CD 自动化。"
+            ),
+            "section_skills": "技能",
+            "section_projects": "项目经历",
+            "section_contact": "联系方式",
+            "projects": [
+                {
+                    "name": "AMMO AI - 多智能体 AI 应用",
+                    "description": "构建了基于 Django REST 的后端，支持多智能体架构、"
+                                   "pgvector 语义搜索和 WebSocket 实时通信。"
+                                   "通过 Docker 部署至 Google Cloud Run，2 周内用户达到 7 万。"
+                },
+                {
+                    "name": "基于深度学习的癌症视觉检测",
+                    "description": "在 10 万+ 癌症图像上设计多层 CNN 模型，准确率达 80%。"
+                                   "开发了用于癌症预测和护理建议的聊天机器人。论文发表于 SPIE。",
+                    "url": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12079/1207926/A-new-application-in-cancer-diagnosis-based-on-convolutional-neural/10.1117/12.2623108.short"
+                },
+                {
+                    "name": "HireBeat - GitHub 简历 Chrome 扩展",
+                    "description": "开发了一款 Chrome 扩展，为 50+ 雇主抓取 GitHub 个人资料。"
+                                   "全栈系统：React/JQuery 前端 + Python Flask + PostgreSQL 后端。"
+                },
+                {
+                    "name": "社交媒体平台数据库迁移",
+                    "description": "为类 Instagram 社交平台重新设计数据库架构，"
+                                   "使用 SQL 和 NoSQL 查询将数据从 Oracle DB 迁移至 MySQL 和 MongoDB。"
+                }
+            ]
+        },
+        "de": {
+            "name": "Pengzhou (Baron) Chen",
+            "title": "Softwareentwickler @ AMMO AI | B.S. in Informatik, University of Michigan",
+            "description": (
+                "Fullstack-Softwareentwickler mit Erfahrung in KI-gestützten Anwendungen, "
+                "Django REST Framework, Multi-Agenten-Systemen und Vektordatenbanksuche. "
+                "Leidenschaftlich für skalierbare Backend-Systeme, MLOps und CI/CD-Automatisierung."
+            ),
+            "section_skills": "Fähigkeiten",
+            "section_projects": "Projekte",
+            "section_contact": "Kontakt",
+            "projects": [
+                {
+                    "name": "AMMO AI - Multi-Agenten-KI-Anwendung",
+                    "description": "Entwicklung eines Django-REST-Backends mit Multi-Agenten-Architektur, "
+                                   "pgvector-Semantiksuche und WebSocket-Echtzeitkommunikation. "
+                                   "Bereitstellung über Docker auf Google Cloud Run mit 70.000 Nutzern in 2 Wochen."
+                },
+                {
+                    "name": "Visionsbasierte Krebserkennung mit Deep Learning",
+                    "description": "Entwurf eines mehrschichtigen CNN-Modells auf 100.000+ Krebsbildern mit 80% Genauigkeit. "
+                                   "Erstellung eines Chatbots für Krebsvorhersage und Pflegeberatung. Veröffentlicht bei SPIE.",
+                    "url": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/12079/1207926/A-new-application-in-cancer-diagnosis-based-on-convolutional-neural/10.1117/12.2623108.short"
+                },
+                {
+                    "name": "HireBeat - GitHub-Profil Chrome-Erweiterung",
+                    "description": "Entwicklung einer Chrome-Erweiterung zum Scrapen von GitHub-Profilen für 50+ Arbeitgeber. "
+                                   "Fullstack-System mit React/JQuery-Frontend und Python Flask + PostgreSQL-Backend."
+                },
+                {
+                    "name": "Datenbankmigration für Social-Media-Plattform",
+                    "description": "Neugestaltung der Datenbankschemata für eine Instagram-ähnliche Plattform. "
+                                   "Migration von Oracle DB zu MySQL und MongoDB mit SQL- und NoSQL-Abfragen."
+                }
+            ]
+        }
+    }
+
+    # 将翻译数据序列化为 JSON，嵌入 HTML
+    translations_json = json.dumps(translations, ensure_ascii=False, indent=2)
+
+    # 构建技能标签 HTML
+    skills_html = ""
+    for skill in personal_info['skills']:
+        skills_html += f'        <span class="skill">{skill}</span>\n'
+
+    github_url = personal_info['contact']['github']
+    linkedin_url = personal_info['contact']['linkedin']
+
     # HTML 模板
-    html_content = f"""
-<!DOCTYPE html>
-<html lang="zh-CN">
+    html_content = f"""<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{personal_info['name']} - Tech Card</title>
+<title>{personal_info['name']} - Dev Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+*,*::before,*::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
+
 body {{
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    line-height: 1.6;
-    background-color: #f4f4f4;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    min-height: 100vh;
+    padding: 40px 20px;
+    line-height: 1.7;
 }}
+
 .container {{
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 780px;
+    margin: 0 auto;
 }}
-h1 {{
-    color: #333;
+
+/* ── Language Switcher ── */
+.lang-switcher {{
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-bottom: 32px;
+}}
+.lang-btn {{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8em;
+    padding: 5px 14px;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    background: transparent;
+    color: #8b949e;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}}
+.lang-btn:hover {{
+    color: #c9d1d9;
+    border-color: #58a6ff;
+}}
+.lang-btn.active {{
+    background: #1f6feb;
+    color: #fff;
+    border-color: #1f6feb;
+}}
+
+/* ── Header / Hero ── */
+.hero {{
     text-align: center;
-    margin-bottom: 10px;
+    padding: 40px 0 32px;
+    border-bottom: 1px solid #21262d;
+    margin-bottom: 36px;
 }}
-.title {{
-    text-align: center;
-    color: #666;
-    font-size: 1.2em;
-    margin-bottom: 20px;
+.hero h1 {{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 8px;
 }}
+.hero h1::before {{
+    content: '> ';
+    color: #3fb950;
+}}
+.hero .title {{
+    font-size: 1.05em;
+    color: #8b949e;
+    margin-bottom: 16px;
+}}
+.hero .description {{
+    font-size: 0.95em;
+    color: #8b949e;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+}}
+
+/* ── Section headers ── */
+.section-header {{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #58a6ff;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}}
+.section-header::before {{
+    content: '#';
+    color: #3fb950;
+    font-weight: 700;
+}}
+.section-header::after {{
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #21262d;
+}}
+
+/* ── Skills ── */
+.section {{ margin-bottom: 36px; }}
 .skills {{
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin: 20px 0;
+    gap: 8px;
 }}
 .skill {{
-    background: #007bff;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9em;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8em;
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: 1px solid #30363d;
+    background: #161b22;
+    color: #c9d1d9;
+    transition: all 0.2s ease;
 }}
-.projects, .contact {{
-    margin: 20px 0;
+.skill:hover {{
+    border-color: #58a6ff;
+    color: #58a6ff;
+    background: rgba(88,166,255,0.08);
 }}
-a {{
-    color: #007bff;
+
+/* ── Project Cards ── */
+.project-grid {{
+    display: grid;
+    gap: 12px;
+}}
+.project-card {{
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 8px;
+    padding: 18px 20px;
+    transition: all 0.25s ease;
+}}
+.project-card:hover {{
+    border-color: #30363d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}}
+.project-card.clickable {{
+    cursor: pointer;
+}}
+.project-card.clickable .project-name::after {{
+    content: ' ↗';
+    font-size: 0.85em;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}}
+.project-card.clickable:hover .project-name::after {{
+    opacity: 1;
+}}
+.project-card .project-name {{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95em;
+    font-weight: 600;
+    color: #58a6ff;
+    margin-bottom: 6px;
+}}
+.project-card .project-desc {{
+    font-size: 0.88em;
+    color: #8b949e;
+    line-height: 1.7;
+}}
+
+/* ── Contact ── */
+.contact-links {{
+    display: flex;
+    gap: 12px;
+}}
+.contact-link {{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88em;
+    padding: 8px 18px;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    background: #161b22;
+    color: #c9d1d9;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}}
+.contact-link:hover {{
+    border-color: #58a6ff;
+    color: #58a6ff;
+    background: rgba(88,166,255,0.08);
     text-decoration: none;
 }}
-a:hover {{
-    text-decoration: underline;
+.contact-link svg {{
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}}
+
+/* ── Footer ── */
+.footer {{
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #21262d;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75em;
+    color: #484f58;
+}}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {{
+    .hero h1 {{ font-size: 1.6em; }}
+    .contact-links {{ flex-direction: column; }}
 }}
 </style>
 </head>
 <body>
 <div class="container">
-<h1>{personal_info['name']}</h1>
-<div class="title">{personal_info['title']}</div>
-<p>{personal_info['description']}</p>
-<h2>技能</h2>
-<div class="skills">
-"""
-    # 添加技能标签
-    for skill in personal_info['skills']:
-        html_content += f'    <span class="skill">{skill}</span>\n'
-    html_content += """
+
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="switchLang('en')">EN</button>
+        <button class="lang-btn" onclick="switchLang('zh')">中文</button>
+        <button class="lang-btn" onclick="switchLang('de')">DE</button>
+    </div>
+
+    <div class="hero">
+        <h1 id="name"></h1>
+        <div class="title" id="title"></div>
+        <p class="description" id="description"></p>
+    </div>
+
+    <div class="section">
+        <div class="section-header" id="section-skills"></div>
+        <div class="skills">
+{skills_html}        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-header" id="section-projects"></div>
+        <div class="project-grid" id="project-list"></div>
+    </div>
+
+    <div class="section">
+        <div class="section-header" id="section-contact"></div>
+        <div class="contact-links">
+            <a class="contact-link" href="{github_url}" target="_blank">
+                <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                GitHub
+            </a>
+            <a class="contact-link" href="{linkedin_url}" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                LinkedIn
+            </a>
+        </div>
+    </div>
+
+    <div class="footer">
+        built with python &middot; hosted on github pages
+    </div>
+
 </div>
-<h2>项目经历</h2>
-<div class="projects">
-<ul>
-"""
-    # 添加项目描述
-    for project in personal_info['projects']:
-        html_content += f'    <li><strong>{project["name"]}</strong>: {project["description"]}</li>\n'
-    html_content += f"""
-</ul>
-</div>
-<h2>联系方式</h2>
-<div class="contact">
-<p>
-<a href="{personal_info['contact']['github']}" target="_blank">GitHub</a> |
-<a href="{personal_info['contact']['linkedin']}" target="_blank">LinkedIn</a>
-</p>
-</div>
-</div>
+
+<script>
+const translations = {translations_json};
+
+function switchLang(lang) {{
+    const t = translations[lang];
+    if (!t) return;
+
+    document.getElementById('name').textContent = t.name;
+    document.getElementById('title').textContent = t.title;
+    document.getElementById('description').textContent = t.description;
+    document.getElementById('section-skills').textContent = t.section_skills;
+    document.getElementById('section-projects').textContent = t.section_projects;
+    document.getElementById('section-contact').textContent = t.section_contact;
+
+    // 渲染项目卡片
+    const projectList = document.getElementById('project-list');
+    projectList.innerHTML = '';
+    t.projects.forEach(function(p) {{
+        const card = document.createElement('div');
+        card.className = 'project-card' + (p.url ? ' clickable' : '');
+        if (p.url) {{
+            card.onclick = function() {{ window.open(p.url, '_blank'); }};
+        }}
+        card.innerHTML = '<div class="project-name">' + p.name + '</div>'
+                       + '<div class="project-desc">' + p.description + '</div>';
+        projectList.appendChild(card);
+    }});
+
+    // 更新按钮状态
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {{
+        btn.classList.remove('active');
+    }});
+    document.querySelector('.lang-btn[onclick="switchLang(\\'' + lang + '\\')"]').classList.add('active');
+
+    // 更新 html lang 属性
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang;
+}}
+
+// 默认加载英文
+switchLang('en');
+</script>
+
 </body>
-</html>
-"""
+</html>"""
 
     # 写入文件
     with open("index.html", "w", encoding="utf-8") as f:
