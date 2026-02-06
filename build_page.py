@@ -1,23 +1,45 @@
 def main():
     # 个人信息配置
     personal_info = {
-        "name": "张三",
-        "title": "AI Engineer",
-        "description": "AI Engineer passionate about MLOps and automation.",
-        "skills": ["Python", "TensorFlow", "Git", "CI/CD", "Docker"],
+        "name": "陈鹏舟(Pengzhou Chen)",
+        "title": "Software Engineer @ AMMO AI | B.S. in CS, University of Michigan",
+        "description": "Full-stack Software Engineer with experience in AI-powered applications, "
+                       "Django REST Framework, multi-agent systems, and vector database search. "
+                       "Passionate about building scalable backend systems, MLOps, and CI/CD automation.",
+        "skills": [
+            "Python", "Java", "C++", "JavaScript", "TypeScript",
+            "Django", "Flask", "FastAPI", "React",
+            "PostgreSQL", "MongoDB", "VectorDB", "Elasticsearch",
+            "Docker", "Git", "CI/CD", "Jenkins",
+            "AWS", "GCP", "Microsoft Azure",
+            "REST Framework", "WebSocket", "Pytorch"
+        ],
         "projects": [
             {
-                "name": "项目一",
-                "url": "https://github.com/yourusername/project1"
+                "name": "AMMO AI - Multi-Agent AI Application",
+                "description": "Built a Django REST backend with multi-agent architecture, "
+                               "pgvector semantic search, and WebSocket real-time communication. "
+                               "Deployed via Docker on Google Cloud Run, reaching 70k users in 2 weeks."
             },
             {
-                "name": "项目二",
-                "url": "https://github.com/yourusername/project2"
+                "name": "Vision-Based Cancer Detection Using Deep Learning",
+                "description": "Designed a multi-layer CNN model on 100,000+ cancer images achieving 80% accuracy. "
+                               "Created a chatbot for cancer prediction and care advice. Published at SPIE."
+            },
+            {
+                "name": "HireBeat - GitHub Profile Chrome Extension",
+                "description": "Developed a Chrome Extension to scrape GitHub profiles for 50+ employers. "
+                               "Full-stack system with React/JQuery frontend and Python Flask + PostgreSQL backend."
+            },
+            {
+                "name": "Database Migration for Social Media Platform",
+                "description": "Redesigned database schemas for an Instagram-like platform. "
+                               "Migrated data from Oracle DB to MySQL and MongoDB using SQL and NoSQL queries."
             }
         ],
         "contact": {
-            "github": "https://github.com/yourusername",
-            "linkedin": "https://linkedin.com/in/yourprofile"
+            "github": "https://github.com/Akoasm666",
+            "linkedin": "https://www.linkedin.com/in/pengzhou-chen-a52b60195/"
         }
     }
 
@@ -97,9 +119,9 @@ a:hover {{
 <div class="projects">
 <ul>
 """
-    # 添加项目链接
+    # 添加项目描述
     for project in personal_info['projects']:
-        html_content += f'    <li><a href="{project["url"]}" target="_blank">{project["name"]}</a></li>\n'
+        html_content += f'    <li><strong>{project["name"]}</strong>: {project["description"]}</li>\n'
     html_content += f"""
 </ul>
 </div>
